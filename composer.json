@@ -1,0 +1,27 @@
+{
+  "name": "Grummfy/EastMail",
+  "description": "Mail as east",
+  "keywords": [ "East", "Mailer" ],
+  "authors": [
+    {
+      "name": "Grummfy",
+      "email": "me@grummfy.be"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0"
+  },
+  "require-dev": {
+    "atoum/atoum" : "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Grummfy\\East\\Mail\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Grummfy\\East\\Mail\\tests\\units\\": "tests/units"
+    }
+  }
+}
