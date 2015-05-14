@@ -2,7 +2,7 @@
 
 namespace Grummfy\East\Mail;
 
-use Grummfy\East\Mail\Contracts\Mailer;
+use Grummfy\East\Mail\Contracts\Mailer as MailerInterface;
 
 class Message implements Contracts\Message
 {
@@ -13,7 +13,7 @@ class Message implements Contracts\Message
 		$this->_message = $message;
 	}
 
-	public function giveMessageToMailer(Mailer $mailer)
+	public function mailerAskAMessage(MailerInterface $mailer)
 	{
 		$mailer->needOneMessage($this->_message);
 

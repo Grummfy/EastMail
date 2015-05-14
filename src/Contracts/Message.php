@@ -4,5 +4,5 @@ namespace Grummfy\East\Mail\Contracts;
 
 interface Message
 {
-	public function giveMessageToMailer(Mailer $mailer);
+	public function mailerAskAMessage(Mailer $mailer);
 }

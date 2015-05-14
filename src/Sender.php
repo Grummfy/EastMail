@@ -2,25 +2,23 @@
 
 namespace Grummfy\East\Mail;
 
-use Grummfy\East\Mail\Contracts\MailContact;
 use Grummfy\East\Mail\Contracts\Mailer;
 
-class Sender implements Contracts\Sender
+class Sender extends MailContact implements Contracts\Sender
 {
-	/**
-	 * @var MailContact
-	 */
-	protected $_contact;
-
-	public function __construct(MailContact $contact)
-	{
-		$this->_contact = $contact;
-	}
+	private $_tmpMailer;
 
 	public function contactIsAskedByMailer(Mailer $mailer)
 	{
-		$mailer->newContactSender($this->_contact);
+		$this->_tmpMailer = $mailer;
+		$this->_emailAndNameAreNeededByContact($this);
 
+		return $this;
+	}
+
+	protected function _emailAndNameAre($email, $name)
+	{
+		$this->_tmpMailer->newContactSender($email, $name);
 		return $this;
 	}
 }
