@@ -8,9 +8,6 @@
       "email": "me@grummfy.be"
     }
   ],
-  "require": {
-    "php": ">=5.5.0"
-  },
   "require-dev": {
     "atoum/atoum" : "dev-master"
   },
