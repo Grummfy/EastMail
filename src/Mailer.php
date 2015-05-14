@@ -3,6 +3,7 @@
 namespace Grummfy\East\Mail;
 
 use Grummfy\East\Mail\Contracts\Message;
+use Grummfy\East\Mail\Contracts\Receiver as ReceiverContract;
 use Grummfy\East\Mail\Mailer\MailerInterface;
 
 class Mailer implements Contracts\Mailer
@@ -27,9 +28,10 @@ class Mailer implements Contracts\Mailer
 		return $this;
 	}
 
-	public function send(Message $message, $subject)
+	public function send(ReceiverContract $receiver, Message $message, $subject)
 	{
 		$message->mailerAskAMessage($this);
+		$receiver->contactIsAskedByMailer($this);
 
 		$to = $this->_receiver;
 		$message = $this->_message;

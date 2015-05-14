@@ -4,7 +4,7 @@ namespace Grummfy\East\Mail\Contracts;
 
 interface Mailer
 {
-	public function send(Message $message, $subject);
+	public function send(Receiver $receiver, Message $message, $subject);
 
 	public function needOneMessage($message);
 

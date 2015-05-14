@@ -11,5 +11,4 @@ $mailer = new \Grummfy\East\Mail\Mailer(new \Grummfy\East\Mail\Mailer\Dummy());
 $message = new \Grummfy\East\Mail\Message('Hello mail');
 
 // send the mail with dummy mailer
-$receiver->contactIsAskedByMailer($mailer);
-$mailer->send($message, 'test');
+$mailer->send($receiver, $message, 'test');
