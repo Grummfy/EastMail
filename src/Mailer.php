@@ -35,6 +35,13 @@ class Mailer implements Contracts\Mailer
 
 		$to = $this->_receiver;
 		$message = $this->_message;
+
+		if (empty($to) || empty($message))
+		{
+			$this->_mailerMachine->send('me@myself.tld', $subject, 'no email or receiver setted');
+			return $this;
+		}
+
 		$this->_mailerMachine->send($to, $subject, $message);
 		return $this;
 	}
